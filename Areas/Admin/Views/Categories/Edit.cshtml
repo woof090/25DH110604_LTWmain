@@ -1,0 +1,26 @@
+﻿@model _25DH110604_LTW.Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="bg-success">CẬP NHẬT DANH MỤC</h2>
+
+
+@using (Html.BeginForm("Edit", "Products", FormMethod.Post, new {enctype="multipart / form - data"}))
+
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CategoryID)
+
+    @Html.Partial("PVCreateEditCatergory", Model)
+</div>
+}
+
+
+
